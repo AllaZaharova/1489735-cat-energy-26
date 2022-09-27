@@ -61,14 +61,22 @@
   color: @basic-white;
   background-color: @basic-green;
   border: none;
+  cursor: pointer;
 
-  &:hover {
-    background-color: @special-green;
+  &:not(:disabled) {
+    &:hover,
+    &:active {
+      background-color: @special-green;
+    }
+
+    &:active {
+      color: rgba(@basic-white, 0.3);
+    }
   }
 
-  &:active {
-    background-color: @special-green;
-    color: rgba(@basic-white, 0.3);
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
 }
 
@@ -76,9 +84,9 @@
   .additive-item {
     padding-left: 38px;
     display: grid;
-    grid-template-columns: 310px 160px 60px;
+    grid-template-columns: 312px 180px 52px;
     grid-template-rows: auto auto;
-    gap: 25px 49px;
+    gap: 22px 45px;
     border-bottom: 1px solid @special-grey;
   }
 
@@ -124,15 +132,6 @@
     line-height: 16px;
     align-items: center;
     text-align: center;
-
-    &:hover {
-      background-color: @special-green;
-    }
-
-    &:active {
-      background-color: @special-green;
-      color: rgba(@basic-white, 0.3);
-    }
   }
 }
 

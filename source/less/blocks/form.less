@@ -21,6 +21,9 @@
   margin-bottom: 14px;
 }
 
+
+/* Form Input Text */
+
 .form__input-text {
   position: relative;
   padding: 13px 15px;
@@ -103,6 +106,9 @@
   stroke: #ff8282;
 }
 
+
+/* Textarea */
+
 .form__textarea {
   min-width: 280px;
   min-height: 150px;
@@ -112,8 +118,11 @@
   font-size: 16px;
   line-height: 18px;
   text-transform: uppercase;
+  border: 1px solid @special-lightgrey;
   color: @special-dark-grey;
 }
+
+/* Radio */
 
 .form__radio-wrapper {
   position: relative;
@@ -199,9 +208,11 @@
   content: "";
 }
 
-.form__item-input:hover + .form__item-mark,
-.form__item-input:focus + .form__item-mark {
-  outline: 1px solid #bababa;
+.form__item-input:hover,
+.form__item-input:focus {
+  &:not(:disabled) + .form__item-mark {
+    outline: 1px solid #bababa;
+  }
 }
 
 .form__item-input:invalid ~ span {
@@ -287,6 +298,23 @@
   color: @basic-white;
   background-color: @basic-green;
   border: none;
+  cursor: pointer;
+
+  &:not(:disabled) {
+    &:hover,
+    &:active {
+      background-color: @special-green;
+    }
+
+    &:active {
+      color: rgba(@basic-white, 0.3);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 }
 
 .form__legend {
@@ -602,7 +630,8 @@
   }
 
   .form__legend {
-    margin-left: 65px;
+    vertical-align: text-top;
+    margin-left: 60px;
     font-family: @second-fonts;
     font-weight: 400;
     font-size: 16px;
@@ -823,7 +852,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 40px;
-    column-gap: 100px;
+    column-gap: 78px;
     row-gap: 0;
   }
 
